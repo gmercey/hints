@@ -1,20 +1,25 @@
 import { resolve } from 'pathe'
 
 export default defineNuxtConfig({
-  ssr: false,
 
   modules: [
     '@nuxt/devtools-ui-kit',
-  ],
+  ], ssr: false,
+
+  devtools: {
+    enabled: false,
+  },
+
+  app: {
+    baseURL: '/__nuxt-hints',
+  },
+
+  compatibilityDate: '2024-08-21',
 
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client'),
     },
-  },
-
-  app: {
-    baseURL: '/__nuxt-hints',
   },
 
   vite: {
@@ -23,13 +28,7 @@ export default defineNuxtConfig({
         // Instead of go through proxy, we directly connect real port of the client app
         clientPort: +(process.env.PORT || 3300),
       },
-      allowedHosts: true
+      allowedHosts: true,
     },
   },
-
-  devtools: {
-    enabled: false,
-  },
-
-  compatibilityDate: '2024-08-21',
 })
