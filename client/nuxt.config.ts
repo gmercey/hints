@@ -1,9 +1,10 @@
 import { resolve } from 'pathe'
 
 export default defineNuxtConfig({
-
+  appId: 'nuxt-hints-iframe',
   modules: [
     '@nuxt/devtools-ui-kit',
+    '@nuxt/icon',
   ], ssr: false,
 
   devtools: {
@@ -12,6 +13,9 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/__nuxt-hints',
+  },
+  future: {
+    compatibilityVersion: 4,
   },
 
   compatibilityDate: '2024-08-21',
