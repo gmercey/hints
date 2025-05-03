@@ -4,6 +4,6 @@ import { defineNuxtPlugin } from '#imports'
 
 // provide tracer from main app/iframe context
 export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.__tracerOverlay = tracerOverlay
-    nuxtApp.__tracerRecord = tracerRecord
+  nuxtApp.__tracerOverlay = tracerOverlay
+  nuxtApp.__tracerRecord = tracerRecord
 })

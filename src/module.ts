@@ -23,7 +23,6 @@ export default defineNuxtModule<ModuleOptions>({
       // performances
       addPlugin(resolver.resolve('./runtime/plugins/performance/plugin.client'))
 
-
       // hydration
       addPlugin(resolver.resolve('./runtime/plugins/hydration/plugin.client'))
       addBuildPlugin(InjectHydrationPlugin)
@@ -31,7 +30,6 @@ export default defineNuxtModule<ModuleOptions>({
       if (options.devtools) {
         setupDevToolsUI(nuxt, resolver)
         addPlugin(resolver.resolve('./runtime/plugins/vue-tracer-state.client'))
-
       }
     }
   },
