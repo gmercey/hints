@@ -1,5 +1,5 @@
 <script setup lang="ts">
-efinePageMeta({
+definePageMeta({
   title: 'Hydration',
 })
 
