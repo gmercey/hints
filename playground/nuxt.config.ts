@@ -8,5 +8,5 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-  hints: { enabled: true, devtools: true },
+  hints: { devtools: true },
 })
