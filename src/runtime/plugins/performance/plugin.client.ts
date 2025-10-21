@@ -127,7 +127,7 @@ export default defineNuxtPlugin({
           const sourceElement = performanceEntry.sources?.[0].node
 
           // Nuxt DevTools button causes small layout shift so we ignore it
-          if (sourceElement.parentElement?.className.includes('nuxt-devtools')) return
+          if (!sourceElement || sourceElement.parentElement?.className.includes('nuxt-devtools')) return
 
           console.info(
             '[@nuxt/hints:performance] Potential CLS Element: ',
