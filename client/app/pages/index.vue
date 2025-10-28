@@ -1,74 +1,82 @@
 <script setup lang="ts">
-const { hydration } = useHostPerformancesData()
+const { allMetrics } = useHostWebVitals()
+const { hydration } = useHostHydration()
+
+const hydrationCount = computed(() => hydration.length || 0)
 </script>
 
 <template>
-  <div class="relative p-4 n-bg-base flex flex-col gap-4">
-    <NButton
-      n="xl"
-      flex
-      justify-between
-      items-center
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 p-4">
+    <NuxtLink
       to="/web-vitals"
+      class="block"
     >
-      <span
-        flex
-        flex-col
-        gap-2
-      >
-        Web vitals
-      </span>
-
-      <Icon
-        name="material-symbols:chevron-right-rounded"
-        text-xl
-      />
-    </NButton>
-    <NButton
-      n="xl"
-      flex
-      justify-between
-      items-center
-      to="/hydration"
-    >
-      <span
-        flex
-        flex-col
-        gap-2
-      >
-        Hydration issues
-        <span
-          v-if="hydration.length"
-          text-sm
+      <n-card class="flex items-center justify-between p-4">
+        <div class="flex items-center gap-3 min-w-0">
+          <Icon
+            name="material-symbols:monitoring"
+            class="text-xl text-blue-500"
+          />
+          <div class="min-w-0">
+            <div class="text-sm font-medium truncate">
+              Web Vitals
+            </div>
+            <div class="text-xs text-gray-500">
+              LCP / INP / CLS
+            </div>
+          </div>
+        </div>
+        <n-badge
+          v-if="allMetrics.length"
         >
-          {{ hydration.length }} hydration issues
-        </span>
-      </span>
+          {{ allMetrics.length }} issues
+        </n-badge>
+      </n-card>
+    </NuxtLink>
 
-      <Icon
-        name="material-symbols:chevron-right-rounded"
-        text-xl
-      />
-    </NButton>
-    <NButton
-      n="xl"
-      flex
-      justify-between
-      items-center
-      to="/third-party-scripts"
+    <NuxtLink
+      to="/hydration"
+      class="block"
     >
-      <span
-        flex
-        flex-col
-        gap-2
-      >
-        Third party scripts
-      </span>
+      <n-card class="flex items-center justify-between p-4">
+        <div class="flex items-center gap-3 min-w-0">
+          <Icon
+            name="material-symbols:water-full"
+            class="text-xl text-cyan-500"
+          />
+          <div class="min-w-0">
+            <div class="text-sm font-medium truncate">
+              Hydration
+            </div>
+            <div class="text-xs text-gray-500">
+              SSR vs client diffs
+            </div>
+          </div>
+        </div>
+        <n-tag
+          v-if="hydrationCount"
+          size="small"
+          type="error"
+          :bordered="false"
+        >
+          {{ hydrationCount }} issues
+        </n-tag>
+      </n-card>
+    </NuxtLink>
 
-      <Icon
-        name="material-symbols:chevron-right-rounded"
-        text-xl
-      />
-    </NButton>
+    <NuxtLink
+      to="/third-party-scripts"
+      class="block"
+    >
+      <n-card class="p-4 flex items-center gap-3">
+        <Icon
+          name="material-symbols:extension"
+          class="text-xl text-violet-500"
+        />
+        <div class="text-sm font-medium truncate">
+          Third party scripts
+        </div>
+      </n-card>
+    </NuxtLink>
   </div>
 </template>

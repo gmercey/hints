@@ -3,7 +3,7 @@ definePageMeta({
   title: 'Hydration',
 })
 
-const { hydration } = useHostPerformancesData()
+const { hydration } = useHostHydration()
 </script>
 
 <template>

@@ -14,29 +14,7 @@ const headers = [
   { title: 'CLS', key: 'cls', articleLink: 'https://web.dev/articles/cls', description: 'Cumulative Layout Shift' },
 ] as const
 
-const lcp = ref<LCPMetricWithAttribution[]>([])
-const inp = ref<INPMetricWithAttribution[]>([])
-const cls = ref<CLSMetricWithAttribution[]>([])
-
-const hostNuxt = useHostNuxt()
-
-hostNuxt.callHook('hints:webvitals:sync', { lcp, inp, cls })
-
-const unsubArray = [
-  hostNuxt.hook('hints:webvitals:cls', (metric: CLSMetricWithAttribution) => {
-    cls.value.push(metric)
-  }),
-  hostNuxt.hook('hints:webvitals:lcp', (metric: LCPMetricWithAttribution) => {
-    lcp.value.push(metric)
-  }),
-  hostNuxt.hook('hints:webvitals:inp', (metric: INPMetricWithAttribution) => {
-    inp.value.push(metric)
-  }),
-]
-
-onBeforeUnmount(() => {
-  unsubArray.forEach(unsub => unsub())
-})
+const { lcp, inp, cls } = useHostWebVitals()
 
 const selectedHeader = ref<typeof headers[number]['key']>()
 
