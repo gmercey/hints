@@ -30,25 +30,25 @@ Nuxt Hints provides a rich, interactive UI inside the Nuxt DevTools panel.
 
 A central hub to see a summary of all detected issues at a glance.
 
-![hints devtools homepage screenshot](./.github/assets/devtools-homepage.png.png)
+![hints devtools homepage screenshot](./.github/assets/devtools-homepage.png)
 
 ### Web Vitals
 
 Drill down into Core Web Vitals metrics. See detailed attribution for LCP, INP, and CLS, inspect the problematic elements, and get context-aware advice.
 
-![hints devtools web vitals screenshot](./.github/assets/devtools-webvitals.png.png)
+![hints devtools web vitals screenshot](./.github/assets/devtools-webvitals.png)
 
 ### Hydration Inspector
 
 Debug hydration mismatches with a powerful side-by-side diff viewer. See the exact differences between the server-rendered HTML and the client-side result.
 
-![hints devtools hydration screenshot](./.github/assets/devtools-hydration.png.png)
+![hints devtools hydration screenshot](./.github/assets/devtools-hydration.png)
 
 ### Third-Party Scripts
 
 Analyze all third-party scripts on your page. The dashboard shows loading times, render-blocking status, and security attributes, helping you identify and mitigate performance bottlenecks.
 
-![hints devtools third-party screenshot](./.github/assets/devtools-thirdparties.png.png)
+![hints devtools third-party screenshot](./.github/assets/devtools-thirdparties.png)
 
 ## Quick Setup
 
